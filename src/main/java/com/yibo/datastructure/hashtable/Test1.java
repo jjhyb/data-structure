@@ -1,0 +1,70 @@
+package com.yibo.datastructure.hashtable;
+
+import com.yibo.datastructure.redblacktree.AVLTree;
+import com.yibo.datastructure.redblacktree.BinarySearchTree;
+import com.yibo.datastructure.redblacktree.RedBlackTree;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ * @Author: huangyibo
+ * @Date: 2020/10/316:26
+ * @Description:
+ */
+public class Test1 {
+
+    public static void main(String[] args) {
+        int n = 10000000;
+        Random random = new Random();
+        ArrayList<Integer> data = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            data.add(i);
+        }
+
+//        testBinarySearchTree(data);
+        testAVLTree(data);
+        testRedBlackTree(data);
+        testHashTable(data);
+    }
+
+    public static void testBinarySearchTree(ArrayList<Integer> data){
+        //Test BinarySearchTree
+        long startTime = System.nanoTime();
+        BinarySearchTree<Integer,Integer> bst = new BinarySearchTree<>();
+        data.forEach(e -> bst.add(e,null));
+        long endTime = System.nanoTime();
+        double time = (endTime - startTime) / 1000000000.0;
+        System.out.println("BinarySearchTree : "+time+" s");
+    }
+
+    public static void testAVLTree(ArrayList<Integer> data){
+        //Test AVLTree
+        long startTime = System.nanoTime();
+        AVLTree<Integer,Integer> avlTree = new AVLTree<>();
+        data.forEach(e -> avlTree.add(e,null));
+        long endTime = System.nanoTime();
+        double time = (endTime - startTime) / 1000000000.0;
+        System.out.println("AVLTree : "+time+" s");
+    }
+
+    public static void testRedBlackTree(ArrayList<Integer> data){
+        //Test RedBlackTree
+        long startTime = System.nanoTime();
+        RedBlackTree<Integer,Integer> redBlackTree = new RedBlackTree<>();
+        data.forEach(e -> redBlackTree.add(e,null));
+        long endTime = System.nanoTime();
+        double time = (endTime - startTime) / 1000000000.0;
+        System.out.println("RedBlackTree : "+time+" s");
+    }
+
+    public static void testHashTable(ArrayList<Integer> data){
+        //Test RedBlackTree
+        long startTime = System.nanoTime();
+        HashTable<Integer,Integer> hashTable = new HashTable<>();
+        data.forEach(e -> hashTable.add(e,null));
+        long endTime = System.nanoTime();
+        double time = (endTime - startTime) / 1000000000.0;
+        System.out.println("HashTable : "+time+" s");
+    }
+}
